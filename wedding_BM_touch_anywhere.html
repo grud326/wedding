@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>To'y Taklifnomasi | Bahromjon</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+        }
+
+        body {
+            background: #f8f5efc9;
+            color: #29251f;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .invitation {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 650px;
+            min-height: 900px;
+            background:
+                linear-gradient(rgba(255,255,255,.88), rgba(255,255,255,.88)),
+                url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80")
+                center/cover;
+            border: 1px solid #d7bd80;
+            position: relative;
+            padding: 65px 45px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0,0,0,.08);
+            overflow: hidden;
+        }
+
+        /* Dekorativ ramka */
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 15px;
+            border: 1px solid #d7bd80;
+            pointer-events: none;
+        }
+
+        .top-text {
+            margin-top: 20px;
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #a2874c;
+        }
+
+        .ornament {
+            color: #c6a45b;
+            font-size: 30px;
+            margin: 25px 0 15px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 72px;
+            font-weight: 500;
+            line-height: .9;
+            color: #29251f;
+        }
+
+        .ampersand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            color: #b49552;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        .bride {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 65px;
+            color: #29251f;
+        }
+
+        .line {
+            width: 80px;
+            height: 1px;
+            background: #c6a45b;
+            margin: 30px auto;
+        }
+
+        .message {
+            max-width: 450px;
+            margin: 0 auto;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            line-height: 1.5;
+            color: #4a443b;
+        }
+
+        .date-box {
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .date-side {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            color: #9d8149;
+        }
+
+        .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 50px;
+            font-weight: 600;
+            color: #29251f;
+        }
+
+        .month {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #9d8149;
+            margin-top: 5px;
+        }
+
+        .location-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #a2874c;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .map-button {
+            display: inline-block;
+            padding: 13px 28px;
+            border: 1px solid #c6a45b;
+            color: #80672f;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 2px;
+            transition: .3s;
+        }
+
+        .map-button:hover {
+            background: #c6a45b;
+            color: white;
+        }
+
+        .bottom-ornament {
+            margin-top: 45px;
+            color: #c6a45b;
+            font-size: 20px;
+            letter-spacing: 8px;
+        }
+
+        @media (max-width: 600px) {
+
+            .invitation {
+                padding: 10px;
+            }
+
+            .card {
+                min-height: 850px;
+                padding: 60px 25px;
+            }
+
+            h1 {
+                font-size: 58px;
+            }
+
+            .bride {
+                font-size: 52px;
+            }
+
+            .message {
+                font-size: 19px;
+            }
+
+            .date {
+                font-size: 42px;
+            }
+
+            .date-box {
+                gap: 15px;
+            }
+        }
+        /* Oltin zarrachalar */
+        .particles {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .particle {
+            position: absolute;
+            top: -30px;
+
+            color: #c6a45b;
+
+            opacity: 0;
+
+            text-shadow:
+                0 0 5px rgba(198, 164, 91, 0.5),
+                0 0 10px rgba(198, 164, 91, 0.3);
+
+            animation: falling linear forwards;
+        }
+
+        @keyframes falling {
+
+            0% {
+                transform:
+                    translateY(-30px)
+                    translateX(0)
+                    rotate(0deg)
+                    scale(.7);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .8;
+            }
+
+            50% {
+                transform:
+                    translateY(50vh)
+                    translateX(30px)
+                    rotate(180deg)
+                    scale(1);
+            }
+
+            85% {
+                opacity: .6;
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    translateX(-40px)
+                    rotate(360deg)
+                    scale(.5);
+
+                opacity: 0;
+            }
+        }
+            /* Laptop / Desktop */
+        .card {
+            width: 650px;
+        }
+
+        /* iPad / Tablet */
+        @media (max-width: 900px) {
+            .card {
+                width: 90%;
+                max-width: 650px;
+            }
+        }
+
+        /* Phone */
+        @media (max-width: 600px) {
+            .invitation {
+                padding: 10px;
+            }
+
+            .card {
+                width: 100%;
+                min-height: 850px;
+                padding: 55px 20px;
+            }
+
+            h1 {
+                font-size: 55px;
+            }
+
+            .bride {
+                font-size: 48px;
+            }
+
+            .message {
+                font-size: 19px;
+            }
+        }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin: 35px 0;
+        }
+
+        .countdown div {
+            min-width: 70px;
+            padding: 12px 8px;
+            border: 1px solid #d7bd80;
+            background: rgba(255,255,255,.65);
+        }
+
+        .countdown span {
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            color: #9d8149;
+        }
+
+        .countdown small {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .countdown {
+                gap: 7px;
+            }
+
+            .countdown div {
+                min-width: 60px;
+                padding: 10px 5px;
+            }
+
+            .countdown span {
+                font-size: 25px;
+            }
+        }
+    
+/* =========================
+   B&M OPENING COVER
+   ========================= */
+.bm-cover {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f5ef;
+    transition: transform 2.5s cubic-bezier(.77,0,.18,1),
+                opacity .7s ease;
+}
+
+.bm-cover.open {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.bm-cover-inner {
+    width: min(100%, 700px);
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    background: url(b1258279-c879-42ac-80f7-a5832cb6e4d1.png) no-repeat center fixed;
+}
+
+.bm-cover-inner::before {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border: 1px solid #d7bd80;
+    pointer-events: none;
+}
+
+.bm-cover-inner::after {
+    content: "✦";
+    position: absolute;
+    top: 12%;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.bm-small {
+    position: absolute;
+    top: 18%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #fffffe;
+}
+
+.bm-monogram {
+    width: 210px;
+    height: 210px;
+    border: 1px solid #c6a45b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.128);
+    box-shadow:
+        0 0 0 8px rgba(198,164,91,.08),
+        0 20px 50px rgba(80,60,30,.08);
+    animation: bmFloat 4s ease-in-out infinite;
+}
+
+.bm-monogram::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+}
+
+.bm-monogram span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 78px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.bm-monogram i {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    color: #ffffff;
+    font-style: italic;
+}
+
+.bm-names {
+    margin-top: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    letter-spacing: 3px;
+    color: #fdfdfd;
+    padding-bottom: 35%;
+}
+
+
+
+
+
+@keyframes bmFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+@media (max-width: 600px) {
+    .bm-cover-inner::before {
+        inset: 12px;
+    }
+
+    .bm-monogram {
+        width: 165px;
+        height: 165px;
+    }
+
+    .bm-monogram span {
+        font-size: 63px;
+    }
+
+    .bm-monogram i {
+        font-size: 30px;
+    }
+
+    .bm-names {
+        font-size: 25px;
+        padding-bottom: 320px;
+    }
+
+    .bm-small {
+        top: 15%;
+        font-size: 9px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- B&M COVER -->
+<section class="bm-cover" id="bmCover">
+    <div class="bm-cover-inner">
+        <div class="bm-small">WEDDING INVITATION</div>
+
+        <div class="bm-monogram">
+            <i><span>B</span></i>
+            <i>&amp;</i>
+            <i><span>M</span></i>
+        </div>
+
+        <div class="bm-names">Bahromjon &amp; Maftuna</div>
+        
+    </div>
+    
+</section>
+
+
+<section class="invitation">
+
+    <div class="card">
+
+        <div class="top-text">
+            Sizni to'yimizga taklif qilamiz
+        </div>
+
+        <div class="ornament">
+            ❦
+        </div>
+
+        <h1>
+            Bahromjon
+        </h1>
+
+        <div class="ampersand">
+            &
+        </div>
+
+        <div class="bride">
+            <h1>
+                Maftuna
+            </h1>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="message">
+            Hayotimizdagi eng go'zal kunlardan birida
+            Sizni yonimizda ko'rish biz uchun katta
+            baxt va quvonchdir.
+            <br><br>
+            Sizni to'yimizning aziz mehmoni bo'lishga
+            chin qalbimizdan taklif qilamiz.
+        </div>
+
+        <div class="date-box">
+
+            <div class="date-side">
+                
+            </div>
+
+            <div class="date">
+                17–18
+                <span class="month">
+                    Oktyabr
+                </span>
+            </div>
+
+            <div class="date-side">
+                
+            </div>
+        </div>
+
+        <div class="countdown">
+            <div>
+                <span id="days">00</span>
+                <small>Kun</small>
+            </div>
+
+            <div>
+                <span id="hours">00</span>
+                <small>Soat</small>
+            </div>
+
+            <div>
+                <span id="minutes">00</span>
+                <small>Daqiqa</small>
+            </div>
+
+            <div>
+                <span id="seconds">00</span>
+                <small>Soniya</small>
+            </div>
+        </div>
+
+
+        <div class="location-title">
+            Manzil
+        </div>
+
+        <div class="location">
+            Soku MFY, Sohil ko'chasi 44-uy
+        </div>
+
+        <a href="https://maps.app.goo.gl/19r7gHHr5fVgHFmT7" class="map-button">
+            📍 Manzilni ko'rish
+        </a>
+
+        <div class="bottom-ornament">
+            ✦ ❦ ✦
+        </div>
+
+    </div>
+
+</section>
+<!-- Oltin zarrachalar va yurakchalar -->
+<div class="particles"></div>
+
+<script>
+    const particles = document.querySelector('.particles');
+
+    function createParticle() {
+        const particle = document.createElement('span');
+
+        const isHeart = Math.random() > 0.65;
+
+        particle.innerHTML = isHeart ? '♡' : '✦';
+
+        particle.classList.add('particle');
+
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDuration = (5 + Math.random() * 8) + 's';
+        particle.style.animationDelay = Math.random() * 5 + 's';
+
+        const size = isHeart
+            ? 14 + Math.random() * 12
+            : 5 + Math.random() * 8;
+
+        particle.style.fontSize = size + 'px';
+
+        particles.appendChild(particle);
+
+        setTimeout(() => {
+            particle.remove();
+        }, 14000);
+    }
+
+    setInterval(createParticle, 350);
+</script>
+<script>
+const weddingDate = new Date("October 17, 2026 00:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance <= 0) {
+        document.querySelector(".countdown").innerHTML =
+            "<div style='border:none; background:none; width:100%;'>" +
+            "<span>Bugun to'y kuni! ❤️</span></div>";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+
+<script>
+const bmCover = document.getElementById("bmCover");
+
+function openBMInvitation() {
+    bmCover.classList.add("open");
+    document.body.style.overflow = "auto";
+}
+
+// Tap/click anywhere on the cover to open the invitation.
+bmCover.addEventListener("click", openBMInvitation);
+bmCover.addEventListener("touchstart", openBMInvitation, { passive: true });
+</script>
+
+</body>
+</html>
